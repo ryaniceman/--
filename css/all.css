@@ -1,0 +1,556 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+header {
+  width: 1920px; 
+  display: flex;
+  position: fixed;
+  top: 0;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 32px 0 32px 0;
+  z-index: 2;
+}
+
+@media (max-width:1920px) {
+  header {
+    width: 100%;
+  }
+}
+
+
+.menu {
+  display: flex;
+  gap: 40px;
+}
+
+header .menu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+header .menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 24px;
+  height: 32px;
+  padding: 4px 8px 4px 8px;
+  color: black;
+  text-decoration: none;
+}
+
+.menu a::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  /*   左下角 */
+}
+
+.menu a::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  /*   右下角 */
+}
+
+.menu li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-left: 1px solid transparent;
+  border-top: 1px solid transparent;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  /*   左上角 */
+}
+.menu li::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1px solid transparent;
+  border-top: 1px solid transparent;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  /*   右上角 */
+}
+
+a:hover::before,
+a:hover::after,
+li:hover::before,
+li:hover::after {
+  border-color: #919191;
+}
+
+header .after_menu {
+  display: flex;
+  width: 90px;
+  height: 40px;
+}
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+header .material-symbols-outlined {
+  cursor: pointer;
+  font-size: 30px;
+  display: none;
+}
+
+header .burgar_click {
+  display: none;
+}
+/* ---------------------------------------------Title------------------------------------------------- */
+.title {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 460px;
+  background-color: #fafafa;
+  /* outline: 2px solid red; */
+  margin-top: 105px;
+  gap: 40px;
+}
+
+.context {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 192px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 0;
+}
+
+.intro p {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.8px;
+  text-align: center;
+  align-self: center;
+  z-index: -1;
+}
+
+.intro strong {
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.intro strong img {
+  position: absolute;
+  left: 0%;
+  bottom: -3%;
+  z-index: -2;
+}
+
+.quote {
+  display: block;
+  width: 72px;
+  align-self: start;
+}
+
+.qend {
+  align-self: end;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.title .info_context {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 298px;
+  gap: 8px;
+}
+
+.info_context h2 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #5b5b5b;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.info_context h2::after {
+  content: "";
+  width: 24px;
+  border: 2px;
+  border-bottom: 2px solid #c1c1c1;
+  position: absolute;
+  right: 25%;
+  bottom: -4px;
+}
+
+.info_context p {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  text-align: center;
+  color: #3b3b3b;
+}
+/* ---------------------------------------------Header RWD------------------------------------------------- */
+@media (max-width: 767px) {
+  header {
+    max-width: 100%;
+    padding: 8px 12px;
+    justify-content: space-between;
+    border-color: #f1f1f1;
+    flex-wrap: wrap;
+  }
+
+  header .after_menu {
+    display: none;
+  }
+
+  header .material-symbols-outlined {
+    width: 10%;
+  }
+
+  header .burgar_click:checked ~ label::before {
+    content: "close";
+  }
+
+  header .burgar_click:not(:checked) ~ label::before {
+    content: "menu";
+  }
+
+  header .material-symbols-outlined {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .burgar_click:checked ~ .menu {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+/* ---------------------------------------------Title RWD------------------------------------------------- */
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 24px 80px 24px;
+    height: auto;
+    gap: 40px;
+    margin-top: 53px;
+  }
+
+  .context {
+    max-width: 300px;
+    flex-direction: column;
+    gap: 8px;
+    height: auto;
+  }
+
+  .intro {
+    height: auto;
+  }
+
+  .intro p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .intro strong {
+    font-weight: 400;
+  }
+  .intro strong img {
+    bottom: 8%;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+  .quote {
+    align-self: center;
+    width: 64px;
+  }
+  .qend {
+    display: none;
+  }
+
+  .info {
+    gap: 20px;
+    max-width: 235px;
+  }
+
+  .title .info_context {
+    width: 235px;
+  }
+
+  .info_context h2 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .info_context p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+  }
+}
+/* ---------------------------------------------MAIN------------------------------------------------- */
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 120px;
+    margin-bottom: 120px;
+    gap: 72px;
+}
+
+.cards{
+    max-width: 1296px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 24px;
+}
+
+.card {
+    max-width: 636px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (max-width: 767px) {
+    .cards{
+        max-width: 94%;
+        gap: 48px;
+    }
+}
+
+.card img{
+    border-radius: 5px;
+    border: 1px solid #f1f1f1;
+}
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0px 16px 0px 16px;
+}
+
+.card-info-content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.card-info-content h2{
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 33.6px;
+    text-align: left;
+    color: #3B3B3B;
+}
+
+.card-info-content p{
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    
+    color: #919191;
+}
+
+.card .hashtag {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    gap: 16px;
+}
+
+.card .hashtag p{
+    background-color: #f1f1f1;
+    color: #343434;
+    padding: 4px 12px 4px 12px;
+    border-radius: 16px;
+    gap: 10px;
+    
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    
+}
+
+.pageselector { 
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 16px;
+    width: 152px;
+}
+
+.pageselector a{
+    display: flex;
+    color: #1e1e1e;
+    background-color: white;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 36px;
+    border-radius: 4px;
+    gap: 10px;
+    padding: 2px 13px 2px 13px;
+
+}
+
+.pageselector a:hover{
+    color: white;
+    background-color: #1e1e1e;
+}
+
+/* ---------------------------------------------FOOTER------------------------------------------------- */
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    height: 424px;
+    padding: 80px 312px 80px 312px;
+
+    background-image: url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+footer .logo_info{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 20px;
+}
+
+footer .logo_info img{
+    width: 120px;
+}
+
+footer .logo_info p{
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+    color: #3B3B3B;
+}
+
+footer .logo_info .email{
+    /* font-size: 20px; */
+    font-weight: 400;
+    line-height: 24px;
+    color:#919191;
+}
+
+footer .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+footer .contact a{
+    display: flex;
+    width: Fixed (306px)px;
+    padding: 8px 24px 8px 24px;
+    gap: 8px;
+    border-radius: 8px;
+    width: 306px;
+    font-size: 20px;
+    line-height: 30px;
+    border: 1px solid #c1c1c1;
+    text-decoration: none;
+    background-color: white;
+    color: #3B3B3B;
+}
+footer .sign a{
+    background-color: black; 
+    color: white; 
+}
+
+footer .contact a:hover{
+    border: 1px solid black;
+}
+
+
+@media (max-width: 1025px) {
+    footer{
+        padding: 80px 60px 80px 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    footer{
+        flex-direction: column;
+        height: 100%;
+        padding: 40px 12px 40px 12px;
+        gap: 40px;
+        background-image:url("https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true");
+  }
+    
+    footer .logo_info{
+        font-size: 16px;
+        align-items: center;
+    }
+
+    footer .contact {
+        align-items: center;
+    }
+    }
